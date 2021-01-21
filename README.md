@@ -5,6 +5,7 @@ This was done with [this](https://github.com/RedstoneMedia/auto-iserv) library.
 
 # Selling points
 This bot can serve as a backup when IServ is down again but its main use is to notify you and others of the newest exercises.
+This bot is recomended if you already have or plan to have a class discord server.
 
 # Notice
 This can only post the exercises of the user you provide when you create the credential.
