@@ -12,10 +12,8 @@ import requests
 
 
 CONFIG = {}
-TOKEN = "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"  # Place your discord bot token here
 CHANEL_ID = 689031648045826075  # The channel in which the exercises will be posted
 CHANEL_ARCHIVE_ID = 704963705426673695  # The channel in which old exercises end up
-EXERCISES_FOLDER = "exercises"  # Where exercises will be saved to locally
 SUBJECT_COLORS = {
     "Latin": 0xFAACC0,
     "France": 0xF6C2FA,
@@ -151,9 +149,9 @@ async def look_for_exercises():
     while True:
         # Look for new exercises and post them in the channel
         await change_status()
-        for file in os.listdir(EXERCISES_FOLDER):
+        for file in os.listdir(CONFIG["ExercisesFolder"]):
             try:
-                exercise = Exercise.load(f"{EXERCISES_FOLDER}\\{file}")
+                exercise = Exercise.load(f"{CONFIG['ExercisesFolder']}\\{file}")
                 if exercise.new:
                     is_changed = await is_changed_exercises(exercise, channel)
                     if is_changed:
@@ -202,7 +200,7 @@ async def look_for_exercises():
                             await channel.send(content=random.choice(NEW_EXERCISE_MESSAGES), embed=embed)
 
                     exercise.new = False
-                    exercise.save(EXERCISES_FOLDER, None)
+                    exercise.save(CONFIG["ExercisesFolder"], None)
 
             except FileNotFoundError:
                 pass
@@ -232,7 +230,7 @@ def run(_config : dict):
     global CONFIG
     CONFIG = _config
     client.loop.create_task(look_for_exercises())
-    client.run(TOKEN)
+    client.run(CONFIG["DiscordBotToken"])
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-# IServ Exercise Notify Discord Bot  v.0.1.0
+# IServ Exercise Notify Discord Bot  v.0.1.1
 
 This is a discord bot, that posts exercises from IServ into a designated channel.
 This was done with [this](https://github.com/RedstoneMedia/auto-iserv) library.
@@ -19,7 +19,7 @@ You can make pull requests and I will look at them.
 3. Create a credential file with `gen-iserv-credential`
 4. Add the encryption password to the config.json (Don't accident push this)
 5. Add your IServ url to the config.json Something like this : `https://your-shoolname-here.de/iserv`
-6. Add your discord bot token to to bot.py (If you don't know how that works look at [this](https://www.writebots.com/discord-bot-token/))
+6. Add your discord bot token to to config.json (If you don't know how that works look at [this](https://www.writebots.com/discord-bot-token/))
 7. Get the channel ID in which you want the notifications and where you want the old notifications
 8. Add those IDs to bot.py
 

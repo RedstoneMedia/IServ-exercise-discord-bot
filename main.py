@@ -7,6 +7,7 @@ import json
 import os
 import time
 import traceback
+import pathlib
 from selenium.common.exceptions import WebDriverException
 
 from multiprocessing import Process
@@ -24,6 +25,8 @@ def main():
     arg_parser.add_argument("--config", default="config.json", required=False, help="The path to the config file", type=str)
     args = arg_parser.parse_args()
     config = json.load(open(args.config, encoding="utf-8"))
+    pathlib.Path(config["ExercisesFolder"]).mkdir(parents=True, exist_ok=True)
+    pathlib.Path(config["AttachmentDownloadDir"]).mkdir(parents=True, exist_ok=True)
     key = config["SecretCredentialPassword"]
 
     bot_process = Process(target=bot.run, args=(config,))
@@ -39,9 +42,9 @@ def main():
                 exercises = exercise_module.get_exercises()
 
                 for exercise in exercises:
-                    if is_exercise_new(exercise):
+                    if is_exercise_new(exercise, config["ExercisesFolder"]):
                         exercise.view(download_attachments=True)
-                        exercise.save("exercises", attachment_dir=os.path.expandvars(config["AttachmentDownloadDir"]))
+                        exercise.save(config["ExercisesFolder"], attachment_dir=os.path.expandvars(config["AttachmentDownloadDir"]))
 
                 print("[*] Sleeping")
                 time.sleep(config["UpdateInterval"])

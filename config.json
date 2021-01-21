@@ -3,5 +3,7 @@
   "SecretCredentialPassword" : "your password here",
   "AttachmentDownloadDir" : "C:\\Users\\%username%\\Downloads\\EmailAttachments",
   "CredentialPath" : "credential",
-  "UpdateInterval" : 300
+  "UpdateInterval" : 300,
+  "DiscordBotToken" : "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  "ExercisesFolder" : "exercises"
 }
