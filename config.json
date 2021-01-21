@@ -1,0 +1,7 @@
+{
+  "IServUrl" : "Your Iserv URL here",
+  "SecretCredentialPassword" : "your password here",
+  "AttachmentDownloadDir" : "C:\\Users\\%username%\\Downloads\\EmailAttachments",
+  "CredentialPath" : "credential",
+  "UpdateInterval" : 300
+}
