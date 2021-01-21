@@ -25,6 +25,10 @@ def main():
     arg_parser.add_argument("--config", default="config.json", required=False, help="The path to the config file", type=str)
     args = arg_parser.parse_args()
     config = json.load(open(args.config, encoding="utf-8"))
+
+    config["ExercisesFolder"] = os.path.expandvars(config["ExercisesFolder"])
+    config["AttachmentDownloadDir"] = os.path.expandvars(config["AttachmentDownloadDir"])
+    config["CredentialPath"] = os.path.expandvars(config["CredentialPath"])
     pathlib.Path(config["ExercisesFolder"]).mkdir(parents=True, exist_ok=True)
     pathlib.Path(config["AttachmentDownloadDir"]).mkdir(parents=True, exist_ok=True)
     key = config["SecretCredentialPassword"]
