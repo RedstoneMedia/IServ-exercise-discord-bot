@@ -15,7 +15,7 @@ from multiprocessing import Process
 
 def is_exercise_new(exercise : Exercise, folder="exercises"):
     for file in os.listdir(folder):
-        if Exercise.load(f"{folder}\\{file}") == exercise:
+        if Exercise.load(f"{folder}/{file}") == exercise:
             return False
     return True
 

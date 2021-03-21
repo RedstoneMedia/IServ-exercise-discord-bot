@@ -153,7 +153,7 @@ async def look_for_exercises():
         await change_status()
         for file in os.listdir(CONFIG["ExercisesFolder"]):
             try:
-                exercise = Exercise.load(f"{CONFIG['ExercisesFolder']}\\{file}")
+                exercise = Exercise.load(f"{CONFIG['ExercisesFolder']}/{file}")
                 if exercise.new:
                     is_changed = await is_changed_exercises(exercise, channel)
                     if is_changed:
@@ -187,7 +187,7 @@ async def look_for_exercises():
                     for i, attachment in enumerate(exercise.attachments):
                         if i > MAX_FILES:
                             break
-                        file_path = f"{os.path.expandvars(ATTACHMENTS_DOWNLOAD_DIR)}\\{attachment}"
+                        file_path = f"{os.path.expandvars(ATTACHMENTS_DOWNLOAD_DIR)}/{attachment}"
                         if not os.path.getsize(file_path) / 1000000 >= MAX_FILE_SIZE:
                             files.append(discord.File(file_path, filename=attachment))
 
