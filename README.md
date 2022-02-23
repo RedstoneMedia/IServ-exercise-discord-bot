@@ -18,7 +18,7 @@ You can make pull requests and I will look at them.
 1. Clone this repo
 2. Run `pip3 install -r requirements.txt`
 3. Create a credential file with `gen-iserv-credential`
-4. Add the encryption password to the config.json (Don't accident push this)
+4. Add the encryption password to the config.json (Don't accidently push this)
 5. Add your IServ url to the config.json Something like this : `https://your-shoolname-here.de/iserv`
 6. Add your discord bot token to to config.json (If you don't know how that works look at [this](https://www.writebots.com/discord-bot-token/))
 7. Get the channel ID in which you want the notifications and where you want the old notifications
